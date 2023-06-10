@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'sixt';
+  src:  url('fonts/sixt.eot?1m790e');
+  src:  url('fonts/sixt.eot?1m790e#iefix') format('embedded-opentype'),
+    url('fonts/sixt.ttf?1m790e') format('truetype'),
+    url('fonts/sixt.woff?1m790e') format('woff'),
+    url('fonts/sixt.svg?1m790e#sixt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'sixt' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-close:before {
+  content: "\e936";
+}
+.ico-delorean:before {
+  content: "\e935";
+}
+.ico-coupe:before {
+  content: "\e932";
+}
+.ico-pickup:before {
+  content: "\e934";
+}
+.ico-estate:before {
+  content: "\e933";
+}
+.ico-arrow-left:before {
+  content: "\e92d";
+}
+.ico-heart:before {
+  content: "\e92e";
+}
+.ico-off-road:before {
+  content: "\e92f";
+}
+.ico-limousine:before {
+  content: "\e930";
+}
+.ico-convertible:before {
+  content: "\e931";
+}
+.ico-map:before {
+  content: "\e92a";
+}
+.ico-target:before {
+  content: "\e92b";
+}
+.ico-agency:before {
+  content: "\e92c";
+}
+.ico-info:before {
+  content: "\e928";
+}
+.ico-snowchains:before {
+  content: "\e922";
+}
+.ico-fuelbig:before {
+  content: "\e927";
+}
+.ico-mailinvoice:before {
+  content: "\e900";
+}
+.ico-minus-sign:before {
+  content: "\e901";
+}
+.ico-childseat:before {
+  content: "\e902";
+}
+.ico-sixt-logo-sm:before {
+  content: "\e921";
+}
+.ico-personplusbig:before {
+  content: "\e903";
+}
+.ico-refill:before {
+  content: "\e904";
+}
+.ico-satnav:before {
+  content: "\e905";
+}
+.ico-wifi:before {
+  content: "\e906";
+}
+.ico-charges:before {
+  content: "\e907";
+}
+.ico-bullet-sm:before {
+  content: "\e908";
+}
+.ico-carshield:before {
+  content: "\e909";
+}
+.ico-driverRequirements:before {
+  content: "\e90a";
+}
+.ico-airCondition:before {
+  content: "\e90b";
+}
+.ico-baggage:before {
+  content: "\e90c";
+}
+.ico-automatic:before {
+  content: "\e90d";
+}
+.ico-doors:before {
+  content: "\e90e";
+}
+.ico-maxPassengers:before {
+  content: "\e90f";
+}
+.ico-checkbox:before {
+  content: "\e910";
+}
+.ico-checkbox-checked:before {
+  content: "\e911";
+}
+.ico-search:before {
+  content: "\e912";
+}
+.ico-user:before {
+  content: "\e913";
+}
+.ico-chevron-down:before {
+  content: "\e914";
+}
+.ico-bullet-xl:before {
+  content: "\e915";
+}
+.ico-planet:before {
+  content: "\e916";
+}
+.ico-sixt-logo:before {
+  content: "\e917";
+}
+.ico-star:before {
+  content: "\e918";
+}
+.ico-radio:before {
+  content: "\e919";
+}
+.ico-radio-selected:before {
+  content: "\e91a";
+}
+.ico-youtube-logo:before {
+  content: "\e91b";
+}
+.ico-instagram-logo:before {
+  content: "\e91c";
+}
+.ico-twitter-logo:before {
+  content: "\e91d";
+}
+.ico-fb-logo:before {
+  content: "\e91e";
+}
+.ico-google-logo:before {
+  content: "\e91f";
+}
+.ico-apple-logo:before {
+  content: "\e920";
+}
+.ico-percent:before {
+  content: "\e923";
+}
+.ico-chevron-right:before {
+  content: "\e924";
+}
+.ico-chevron-left:before {
+  content: "\e925";
+}
+.ico-plus-sign:before {
+  content: "\e926";
+}
+.ico-plane:before {
+  content: "\e929";
+}

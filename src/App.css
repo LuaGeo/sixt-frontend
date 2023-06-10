@@ -1,0 +1,811 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  max-width: 1224px;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  border-bottom: #ff5f00 solid 2px;
+}
+
+.headerHome {
+  height: 50px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.headerHome li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerHome li p {
+  color: #fff;
+}
+
+.headerHome .orangeCircle {
+  width: 30px;
+  height: 30px;
+  background-color: #ff5f00;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerHome .grayCircle {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerHome > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.headerHome button {
+  height: 100%;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.headerHome button > img {
+  height: 100%;
+}
+
+.headerHome div > nav > ul {
+  display: flex;
+  gap: 20px;
+}
+
+/* HERO */
+
+.hero {
+  background-color: #191919;
+  color: #fff;
+  /* position: relative; */
+  z-index: 1;
+  padding: 10px 35px;
+  display: flex;
+  width: 100%;
+  height: 150px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.searchEngines {
+  width: 100%;
+  height: 80px;
+  /* position: relative; */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.searchEngines button {
+  background-color: #ff5f00;
+  color: #fff;
+  border-style: none;
+  /* width: 250px; */
+  height: 40px;
+}
+
+.hero > ul {
+  display: flex;
+  gap: 10px;
+  /* width: 50%; */
+}
+
+/* .hero > div > div {
+  display: flex;
+  flex-direction: column;
+} */
+
+.citiesSearchBar {
+  position: relative;
+  width: 40%;
+}
+
+.citiesSearchBar input {
+  width: 100%;
+}
+
+.citiesSearchBar > span {
+  position: absolute;
+  bottom: 4px;
+  left: 5px;
+  flex: 1;
+}
+
+.hero label {
+  color: #ff5f00;
+}
+
+.locationSearchContainer input {
+  background-color: #191919;
+  color: #fff;
+  border-style: none;
+  outline-style: none;
+  border-bottom: #fff 1px solid;
+  margin-top: 20px;
+  /* height: 30px; */
+  padding-left: 30px;
+  padding-bottom: 5px;
+}
+
+/* .location-search-container {
+  position: relative;
+} */
+
+.suggestions-container {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+.suggestion {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background-color: black;
+  color: white;
+}
+
+/* .dates {
+  display: flex;
+  gap: 5px;
+} */
+
+.dates input {
+  background-color: #191919;
+  color: #fff;
+  border-bottom: #fff 1px solid;
+  height: 1px;
+  outline: none;
+}
+
+.dates fieldset {
+  border: none;
+}
+
+.dates > div {
+  width: 100%;
+}
+
+/* MAIN */
+
+main {
+  z-index: 0;
+}
+
+.carousel {
+  width: 100%;
+  z-index: 0;
+}
+
+.carousel > div > img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.worldMapBlock {
+  width: 100%;
+  background-color: #191919;
+  padding: 40px;
+}
+
+.worldMapBlock > div {
+  display: flex;
+  align-items: baseline;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.worldMapBlock img {
+  width: 70%;
+}
+
+h1 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.worldMapBlock button {
+  color: #fff;
+  background-color: #191919;
+  border-style: none;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+}
+
+.downloadsBlock {
+  width: 100%;
+  height: 464px;
+  background-color: #ff5f00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.downloadsBlock .buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.downloadsBlock .socialMedia {
+  display: flex;
+  gap: 20px;
+}
+
+footer {
+  height: 50px;
+  background-color: #191919;
+  color: #fff;
+  padding: 10px 30px;
+}
+
+footer ul {
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 10px;
+  gap: 20px;
+}
+
+/* OFFERLIST PAGE */
+
+.container {
+  width: 100%;
+  background-color: #ff5f00;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container article {
+  width: 100%;
+}
+
+.articleTitle {
+  background-color: #191919;
+}
+
+.container img {
+  width: 200px;
+}
+
+.container h2 {
+  color: #ff5f00;
+}
+
+/* MODAL */
+
+.App {
+  position: relative;
+}
+
+.modalContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #191919e4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.modalInfosContainer {
+  width: 100vw;
+  background-color: #191919;
+  position: relative;
+  display: flex;
+}
+
+.modalTitle {
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.spanContainer {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+
+.modalContainer span {
+  color: #fff;
+  font-size: 20px;
+}
+
+.modalCarouselContainer {
+  width: 70%;
+  height: 100%;
+}
+.modalImgContainer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalInfosSelect {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 30px;
+}
+
+.modalInfosSelect > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalInfosSelect > div > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.taxesIncluses {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.taxesIncluses p {
+  color: #fff;
+}
+
+.modalInfosSelect > div button {
+  width: 100%;
+  height: 30px;
+  background-color: #ff5f00;
+  border-style: none;
+}
+
+/* OFFERCONFIG PAGE */
+
+.offerConfigHero {
+  width: 100%;
+  height: 300px;
+  background-color: #191919e4;
+  position: relative;
+}
+
+.offerConfigHero > h1 {
+  position: absolute;
+  background-color: #191919;
+  color: #ff5f00;
+  top: 50px;
+  left: 20px;
+}
+
+.offerConfigHero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offerConfigHeroDetails {
+  width: 100%;
+  height: 50px;
+  background-color: #191919;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.offerConfigHeroDetails > div {
+  display: flex;
+  gap: 20px;
+}
+
+.offerConfigContainer {
+  width: 100%;
+  background-color: #ff5f00;
+  padding: 20px;
+  display: flex;
+}
+
+.offerConfigContainer h1 {
+  color: #191919;
+}
+
+.additionalChargesContainer {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chargeCardContainer {
+  width: 350px;
+  height: 200px;
+  background-color: #191919;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  color: #fff;
+}
+
+.selectedChargeCardContainer {
+  width: 350px;
+  height: 200px;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  color: #191919;
+}
+
+.chargeCardContainer span,
+.selectedChargeCardContainer span {
+  color: #ff5f00;
+  font-size: 40px;
+}
+.chargeCardContainer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chargeCardContainer > div > div,
+.selectedChargeCardContainer > div > div {
+  display: flex;
+  gap: 5px;
+}
+
+.additionalChargesContainer button {
+  background-color: transparent;
+  border-style: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.leftColumn {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.includedOffersList {
+  width: 87%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.includedOffersList > div {
+  width: 48%;
+}
+
+.rightColumn {
+  width: 30%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.rightColumn > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.rightColumn > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rightColumn h3 {
+  color: #191919;
+}
+
+.rightColumn h1 {
+  color: #fff;
+}
+
+.rightColumn button {
+  width: 100%;
+  border-style: none;
+  background-color: #fff;
+  color: #ff5f00;
+  height: 40px;
+}
+
+.rightColumn h3 {
+  font-size: 14px;
+}
+
+.rightColumn p {
+  font-size: 12px;
+}
+
+.rightColumn > div > div > button {
+  background-color: transparent;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* MODAL IN OFFERCONFIG (PRICE DETAILS) */
+
+.priceDetailsModalContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #19191999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceDetailsModalInfosContainer {
+  width: 500px;
+  height: 700px;
+  background-color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.priceDetailsModalInfosContainer h1 {
+  color: #413f3f;
+  font-weight: 900;
+  font-size: 35px;
+}
+
+.allDetailsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.priceDetailsModalInfosContainer .allDetailsContainer > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailsContainer > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detailsItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.allDetailsContainer .taxesInclusesText {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+.prix {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* BACKOFFICE PAGE */
+
+.unloggedBackofficeContainer {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.unloggedBackofficeContainer h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+.unloggedBackofficeContainer form {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.unloggedBackofficeContainer input {
+  border-style: none;
+  border: #ff5f00 1px solid;
+  height: 35px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.unloggedBackofficeContainer button {
+  border-style: none;
+  background-color: #ff5f00;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  height: 35px;
+  border-radius: 3px;
+}
+
+.backOfficeContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+thead > tr {
+  font-size: 30px;
+  font-weight: bold;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+thead > tr span:first-child {
+  color: #ff5f00;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.tableItem {
+  border-bottom: #ff5f00 1px solid;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.tableItem tr > div {
+  display: flex;
+  gap: 30px;
+}
+
+.tableItem td {
+  width: 80px;
+}
+
+.tableItem td:nth-child(3) {
+  width: 200px;
+}
+.tableItem td:nth-child(4) {
+  width: 200px;
+}
+.tableItem td:nth-child(5) {
+  width: 200px;
+}
+
+.ico-close {
+  background-color: rgb(192, 1, 1);
+  color: #fff;
+  font-weight: bold;
+  border-style: none;
+  height: 21px;
+  font-size: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.backofficeoModalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #19191978;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backofficeoModalInfosContainer {
+  background-color: #fff;
+  width: 80%;
+  padding: 50px;
+}
+
+.backofficeoModalTitleInfosContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.backofficeoModalTitleInfosContainer > button {
+  background-color: transparent;
+  color: #413f3f;
+}
+
+.prixDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.periode {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #dfdddda2;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.options > div {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #dfdddda2;
+}
+
+.total {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}

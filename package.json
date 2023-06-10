@@ -1,0 +1,43 @@
+{
+  "name": "sixt-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.4",
+    "@mui/x-date-pickers": "^6.6.0",
+    "axios": "^1.4.0",
+    "date-fns": "^2.30.0",
+    "dayjs": "^1.11.8",
+    "flat-carousel": "^0.0.1",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-phone-number-input": "^3.2.23",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.11.2",
+    "react-select": "^5.7.3",
+    "react-select-country-list": "^2.2.3"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.5",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "vite": "^4.3.9",
+    "vite-plugin-eslint": "^1.8.1"
+  }
+}
