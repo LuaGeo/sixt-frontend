@@ -79,7 +79,7 @@ export const Modal = ({
         {splashImages ? (
           <SplashImages splashImages={splashImages} />
         ) : (
-          <p>No images</p>
+          <img src={offer.images.large} alt="" />
         )}
         <h1 className="modalTitle">{offer.headlines.longSubline}</h1>
 
