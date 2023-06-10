@@ -167,7 +167,7 @@ export const LocationSearch = ({ currentPage }) => {
             }}
           >
             <button
-              // style={buttonStyle}
+              style={{ cursor: "pointer" }}
               disabled={handleDisableButton(
                 pickupStation,
                 returnStation,

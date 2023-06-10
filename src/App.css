@@ -741,6 +741,7 @@ footer ul {
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 .personnalDetailsContainer button {
   height: 40px;
