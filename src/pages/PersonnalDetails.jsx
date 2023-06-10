@@ -6,7 +6,7 @@ import countryList from "react-select-country-list";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import axios from "axios";
-import { differenceInDays } from "date-fns";
+import { differenceInDays, parseISO } from "date-fns";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const PersonnalDetails = () => {
@@ -23,6 +23,9 @@ export const PersonnalDetails = () => {
     pickupStation,
     searchTerm,
   } = location.state || {};
+
+  console.log(totalPrice);
+  console.log(typeof totalPrice);
 
   const rentalDurationInDays = differenceInDays(
     new Date(returnDate),
@@ -99,129 +102,203 @@ export const PersonnalDetails = () => {
     setPhoneNumber(phone);
   };
 
+  const rentDuration = differenceInDays(
+    parseISO(returnDate),
+    parseISO(pickupDate)
+  );
+
   return (
     <>
       <Header currentPage={"PersonnalDetails"} />
-      <h2>INFORMATIONS PERSONNELLES</h2>
       <form onSubmit={handleSubmitNewReservation}>
-        <input
-          type="radio"
-          name="salutation"
-          value="Mme."
-          checked={salutation === "Mme."}
-          onChange={() => setSalutation("Mme.")}
-        />
-        <label htmlFor="Mme." className="inputCivility">
-          Mme.
-        </label>
-        <input
-          type="radio"
-          name="salutation"
-          value="Mx."
-          checked={salutation === "Mx."}
-          onChange={() => setSalutation("Mx.")}
-        />
-        <label htmlFor="Mx." className="inputCivility">
-          Mx.
-        </label>
-        <input
-          type="radio"
-          name="salutation"
-          value="M."
-          checked={salutation === "M."}
-          onChange={() => setSalutation("M.")}
-        />
-        <label htmlFor="M." className="inputCivility">
-          M.
-        </label>
-        <input
-          type="text"
-          value={company}
-          onChange={(event) => setCompany(event.target.value)}
-          placeholder="Société"
-        />
-        <div className="fullName">
-          <input
-            type="text"
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-            placeholder="Prénom *"
-            required
-          />
-          <input
-            type="text"
-            value={lastName}
-            onChange={(event) => setLastName(event.target.value)}
-            placeholder="Nom de famille *"
-            required
-          />
-        </div>
-        <div className="contacts">
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="Adresse email *"
-            required
-          />
-          <div>
-            <label htmlFor="country-code">Code pays</label>
-            <PhoneInput
-              defaultCountry="FR"
-              placeholder="Numéro de téléphone *"
-              onChange={handlePhoneNumber}
-              value={phoneNumber}
-              countries={countryCodesList}
-            />
-          </div>
-        </div>
-        <div className="address">
-          <label htmlFor="address">Adresse</label>
+        <div className="personnalDetailsContainer">
+          <h2>INFORMATIONS PERSONNELLES</h2>
+          <div className="formContainer">
+            <div className="leftColumnForm">
+              <div className="radioInputs">
+                <input
+                  type="radio"
+                  name="salutation"
+                  value="Mme."
+                  checked={salutation === "Mme."}
+                  onChange={() => setSalutation("Mme.")}
+                />
+                <label htmlFor="Mme." className="inputCivility">
+                  <p>Mme.</p>
+                </label>
+                <input
+                  type="radio"
+                  name="salutation"
+                  value="Mx."
+                  checked={salutation === "Mx."}
+                  onChange={() => setSalutation("Mx.")}
+                />
+                <label htmlFor="Mx." className="inputCivility">
+                  <p>Mx.</p>
+                </label>
+                <input
+                  type="radio"
+                  name="salutation"
+                  value="M."
+                  checked={salutation === "M."}
+                  onChange={() => setSalutation("M.")}
+                />
+                <label htmlFor="M." className="inputCivility">
+                  <p>M.</p>
+                </label>
+              </div>
+              <div className="formCompany">
+                <input
+                  type="text"
+                  value={company}
+                  onChange={(event) => setCompany(event.target.value)}
+                  placeholder="Société"
+                />
+              </div>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(event) => setFirstName(event.target.value)}
+                placeholder="Prénom *"
+                required
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="Adresse email *"
+                required
+              />
+              <input
+                type="text"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
+                placeholder="Numéro et voie *"
+                required
+              />
+              <div>
+                <label htmlFor="country">Pays</label>
+                <Select
+                  options={countriesList}
+                  value={selectedCountry}
+                  placeholder={selectedCountry}
+                  onChange={handleCountryChange}
+                />
+              </div>
+              <div>
+                <label htmlFor="birthDate">DATE DE NAISSANCE *</label>
+                <input
+                  type="date"
+                  id="birthday"
+                  name="birthday"
+                  onChange={(event) => setBirthdate(event.target.value)}
+                  value={birthdate}
+                />
+              </div>
+            </div>
 
-          <input
-            type="text"
-            value={address}
-            onChange={(event) => setAddress(event.target.value)}
-            placeholder="Numéro et voie *"
-            required
-          />
-          <div>
-            <input
-              type="text"
-              value={postalCode}
-              onChange={(event) => setPostalCode(event.target.value)}
-              placeholder="Code postal *"
-              required
-            />
-            <input
-              type="text"
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-              placeholder="Ville *"
-              required
-            />
+            <div className="rightColumnForm">
+              <div className="fullName">
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={(event) => setLastName(event.target.value)}
+                  placeholder="Nom de famille *"
+                  required
+                />
+              </div>
+              <div className="contacts">
+                <PhoneInput
+                  defaultCountry="FR"
+                  placeholder="Numéro de téléphone *"
+                  onChange={handlePhoneNumber}
+                  value={phoneNumber}
+                  countries={countryCodesList}
+                />
+              </div>
+              <div className="address">
+                <input
+                  type="text"
+                  value={postalCode}
+                  onChange={(event) => setPostalCode(event.target.value)}
+                  placeholder="Code postal *"
+                  required
+                />
+                <input
+                  type="text"
+                  value={city}
+                  onChange={(event) => setCity(event.target.value)}
+                  placeholder="Ville *"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <h2>VÉRIFIER ET RÉSERVER</h2>
+
+          <div className="backofficeoModalTitleInfosContainer">
+            <div>
+              <h3>{offer.headlines.description}</h3>
+              <p>{offer.headlines.longSubline}</p>
+            </div>
+            <img src={offer.images.small} alt="" />
+          </div>
+          <h3>VOTRE OFFRE INCLUT</h3>
+          {rentDetails.includedCharges.map((charge, index) => (
+            <p key={index} className="ico-bullet-sm">
+              {charge.title}
+            </p>
+          ))}
+          <h3>EXIGENCES POUR LES CONDUCTEURS</h3>
+          <p>
+            ▹ Conducteur agé d'au moins{" "}
+            <span style={{ fontWeight: "bold" }}>
+              {" "}
+              {offer.carGroupInfo.driverMinAge} ans{" "}
+            </span>
+          </p>
+          <div className="prixDetails">
+            <h3>PÉRIODE DE LOCATION</h3>
+            <div className="periode">
+              <p>
+                Duré de location {rentDuration} jours x{" "}
+                {offer.prices.dayPrice.amount}
+              </p>
+
+              <p>
+                € {(rentDuration * offer.prices.dayPrice.amount).toFixed(2)}
+              </p>
+            </div>
+            <h3>PROTECTIONS ET OPTIONS</h3>
+            <div className="options">
+              {selectedAdditionalCharges.map((option) => (
+                <div key={option.id}>
+                  <p>
+                    {option.title} ({rentDuration} x {option.dayPrice})
+                  </p>
+
+                  <p>€ {option.dayPrice * rentDuration}</p>
+                </div>
+              ))}
+            </div>
+            <h1 style={{ color: "black" }}>FRAIS</h1>
+            <div className="options">
+              {rentDetails.extraFees.map((fee, index) => (
+                <div key={index}>
+                  <p>{fee.title}</p>
+                  <p>€ {fee.price.amount}</p>
+                </div>
+              ))}
+            </div>
+            <div className="reservationTotal">
+              <h3>TOTAL</h3>
+              <p>€{totalPrice}</p>
+            </div>
+          </div>
+          <div className="buttonSubmitForm">
+            <button>CONFIRMER</button>
           </div>
         </div>
-        <div>
-          <label htmlFor="country">Pays</label>
-          <Select
-            options={countriesList}
-            value={selectedCountry}
-            placeholder={selectedCountry}
-            onChange={handleCountryChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="birthDate">DATE DE NAISSANCE *</label>
-          <input
-            type="date"
-            id="birthday"
-            name="birthday"
-            onChange={(event) => setBirthdate(event.target.value)}
-            value={birthdate}
-          />
-        </div>
-        <input type="submit" />
       </form>
     </>
   );

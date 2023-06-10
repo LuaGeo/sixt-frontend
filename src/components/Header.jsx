@@ -135,15 +135,16 @@ export const Header = ({ currentPage, setIsLogged }) => {
       <div>
         {passwordByCookie && !isDisconnecting && (
           <div>
-            <button onClick={passwordRemove}>SE DÉCONNECTER</button>
+            <button className="loggoutButton" onClick={passwordRemove}>
+              SE DÉCONNECTER
+            </button>
           </div>
         )}
         <Link
           to={"/backoffice"}
           style={{ textDecoration: "none", color: "black", cursor: "pointer" }}
         >
-          <span className="ico-planet"></span>
-          <span>BACKOFFICE</span>
+          <span className="ico-planet">BACKOFFICE</span>
         </Link>
       </div>
     </header>
