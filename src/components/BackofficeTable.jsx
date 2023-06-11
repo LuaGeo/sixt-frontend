@@ -1,3 +1,5 @@
+// Component called in BackOffice's page used to list all reservations which each one is constructed in the BackofficeTableItem's component called here
+
 import { Link } from "react-router-dom";
 import { BackofficeTableItem } from "./BackofficeTableItem";
 

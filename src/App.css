@@ -82,7 +82,6 @@ header {
 .hero {
   background-color: #191919;
   color: #fff;
-  /* position: relative; */
   z-index: 1;
   padding: 10px 35px;
   display: flex;
@@ -95,7 +94,6 @@ header {
 .searchEngines {
   width: 100%;
   height: 80px;
-  /* position: relative; */
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -119,17 +117,6 @@ header {
   width: 40%;
 }
 
-.citiesSearchBar input {
-  width: 100%;
-}
-
-.citiesSearchBar > span {
-  position: absolute;
-  bottom: 4px;
-  left: 5px;
-  flex: 1;
-}
-
 .hero label {
   color: #ff5f00;
 }
@@ -141,44 +128,15 @@ header {
   outline-style: none;
   border-bottom: #fff 1px solid;
   margin-top: 20px;
-  /* height: 30px; */
   padding-left: 30px;
   padding-bottom: 5px;
 }
 
-/* .location-search-container {
-  position: relative;
-} */
-
-.suggestions-container {
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  width: 100%;
-  background-color: white;
-  color: black;
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  z-index: 2;
-}
-
-.suggestion {
-  background-color: white;
-  color: black;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.suggestion:hover {
-  background-color: black;
-  color: white;
-}
-
-/* .dates {
+.dates {
   display: flex;
+  flex-direction: column;
   gap: 5px;
-} */
+}
 
 .dates input {
   background-color: #191919;
@@ -192,15 +150,7 @@ header {
   border: none;
 }
 
-.dates > div {
-  width: 100%;
-}
-
 /* MAIN */
-
-main {
-  z-index: 0;
-}
 
 .carousel {
   width: 100%;
@@ -313,10 +263,6 @@ footer ul {
 }
 
 /* MODAL */
-
-.App {
-  position: relative;
-}
 
 .modalContainer {
   width: 100vw;
@@ -551,6 +497,7 @@ footer ul {
 
 .rightColumn h3 {
   color: #191919;
+  font-size: 14px;
 }
 
 .rightColumn h1 {
@@ -563,10 +510,6 @@ footer ul {
   background-color: #fff;
   color: #ff5f00;
   height: 40px;
-}
-
-.rightColumn h3 {
-  font-size: 14px;
 }
 
 .rightColumn p {
@@ -742,6 +685,7 @@ footer ul {
   margin-bottom: 30px;
   cursor: pointer;
 }
+
 .personnalDetailsContainer button {
   height: 40px;
   width: 300px;

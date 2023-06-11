@@ -1,10 +1,11 @@
+// Component Header called in all the pages that includes a switch function which only modifies the navigation between the 2 elements at the ends of each page and makes the Logout button disappears if not connected
+
 import logo from "../assets/imgs/sixt-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useState } from "react";
-// component Header avec function switch qui modifie seulement la nav entre les 2 élements aux extremitées de chaque page
 
-export const Header = ({ currentPage, setIsLogged }) => {
+export const Header = ({ currentPage }) => {
   const [isDisconnecting, setIsDisconnecting] = useState(false);
 
   const navigate = useNavigate();

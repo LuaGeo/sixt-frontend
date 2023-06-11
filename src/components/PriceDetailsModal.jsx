@@ -1,4 +1,4 @@
-// Modal appears when click on "Détails du prix" in offerconfig page
+// Modal that appears when click on "Détails du prix" in OfferConfig's page
 
 import { differenceInDays } from "date-fns";
 

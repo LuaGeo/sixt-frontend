@@ -1,4 +1,4 @@
-// component used in Modal.jsx to do a map of splashImages (from rentDetails) and putting in a carousel using a carousel package
+// Component used in Modal.jsx to do a map of splashImages (from rentDetails) and showing all the images found in a carousel using a carousel package
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";

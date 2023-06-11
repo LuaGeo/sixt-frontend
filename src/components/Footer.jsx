@@ -1,3 +1,5 @@
+// Component to construct and call the same Footer from all pages
+
 export const Footer = () => {
   return (
     <footer>

@@ -1,3 +1,5 @@
+// Modal that opens when clicking on a reservation in BackOffice's page showing the reservation details
+
 import { useLocation } from "react-router-dom";
 
 export const BackofficeModal = ({

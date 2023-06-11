@@ -1,4 +1,4 @@
-// card model called in RentOffersCard
+// Card model called in RentOffersCard used to construct each offer
 
 import { calculateTotalPrice } from "../utils/calculateTotalPrice";
 

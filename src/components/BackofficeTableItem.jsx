@@ -1,3 +1,5 @@
+// Component called in BackofficeTable's component used to construct each reservation in the BackOffice's page
+
 import { format, parseISO } from "date-fns";
 
 export const BackofficeTableItem = ({

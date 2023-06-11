@@ -1,4 +1,4 @@
-// Component that shows all the offers doing a map function in offerList and returning all the RentOfferCardItem model's card
+// Component called in offerList's page that returns all the RentOfferCardItem
 
 import { Link } from "react-router-dom";
 import { RentOfferCardItem } from "./RentOfferCardItem";

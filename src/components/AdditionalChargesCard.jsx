@@ -1,3 +1,5 @@
+// Card of additional charges, called in OfferConfig's page
+
 export const AdditionalChargesCard = ({ charge, isActive, onActiveChange }) => {
   return (
     charge && (

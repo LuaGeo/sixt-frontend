@@ -7,13 +7,12 @@ import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import axios from "axios";
 import { differenceInDays, parseISO } from "date-fns";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { ModalConfirmation } from "../components/ModalConfirmation";
 
 export const PersonnalDetails = () => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const {
     offer,
@@ -22,8 +21,6 @@ export const PersonnalDetails = () => {
     returnDate,
     totalPrice,
     selectedAdditionalCharges,
-    pickupStation,
-    searchTerm,
   } = location.state || {};
 
   const rentalDurationInDays = differenceInDays(

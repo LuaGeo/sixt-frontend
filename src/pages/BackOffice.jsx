@@ -4,7 +4,6 @@ import axios from "axios";
 
 import { Header } from "../components/Header";
 import { BackofficeModal } from "../components/BackofficeModal";
-import { BackofficeTableItem } from "../components/BackofficeTableItem";
 import { BackofficeTable } from "../components/BackofficeTable";
 
 export const BackOffice = () => {

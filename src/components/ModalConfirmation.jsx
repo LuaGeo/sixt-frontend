@@ -1,3 +1,5 @@
+// Modal that appears when form in PersonnalDetails's page is submit, showing the reference code reservation created and sent by the backend, and then, navigation to Home's page when closed
+
 import { useNavigate } from "react-router-dom";
 
 export const ModalConfirmation = ({

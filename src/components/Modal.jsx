@@ -1,4 +1,4 @@
-// Modal opened when offer clicked in OfferList page
+// Modal opened when offer clicked in OfferList's page
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState, useEffect } from "react";

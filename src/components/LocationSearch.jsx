@@ -1,4 +1,4 @@
-// Search engines called in most of the pages, using dataPickers packages from @mui
+// Search engines called in most of the pages, using packages from mui and react-select
 
 import React, { useState } from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -55,7 +55,6 @@ export const LocationSearch = ({ currentPage }) => {
       <div className="searchEngines">
         <div className="citiesSearchBar">
           <label>Retrait et retour</label>
-          <span className="ico-search"></span>
           <div className="locationSearchContainer">
             <AsyncSelect
               loadOptions={loadOptions}
