@@ -39,6 +39,7 @@ export const OfferList = () => {
     <>
       <Header currentPage={"OfferList"} />
       <LocationSearch />
+
       <RentOffersCards
         offersList={offersList}
         pickupDate={pickupDate}

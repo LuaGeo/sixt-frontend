@@ -106,20 +106,13 @@ header {
   background-color: #ff5f00;
   color: #fff;
   border-style: none;
-  /* width: 250px; */
   height: 40px;
 }
 
 .hero > ul {
   display: flex;
   gap: 10px;
-  /* width: 50%; */
 }
-
-/* .hero > div > div {
-  display: flex;
-  flex-direction: column;
-} */
 
 .citiesSearchBar {
   position: relative;
@@ -286,6 +279,12 @@ footer ul {
 }
 
 /* OFFERLIST PAGE */
+
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
 .container {
   width: 100%;
