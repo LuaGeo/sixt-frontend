@@ -277,7 +277,7 @@ export const PersonnalDetails = () => {
                     {option.title} ({rentDuration} x {option.dayPrice})
                   </p>
 
-                  <p>€ {option.dayPrice * rentDuration}</p>
+                  <p>€ {(option.dayPrice * rentDuration).toFixed(2)}</p>
                 </div>
               ))}
             </div>
