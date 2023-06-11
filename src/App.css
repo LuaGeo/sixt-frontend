@@ -897,7 +897,7 @@ thead > tr span:first-child {
 }
 
 .total {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
