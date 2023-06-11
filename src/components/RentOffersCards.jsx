@@ -35,10 +35,7 @@ export const RentOffersCards = ({
   return (
     <div className="container">
       <div className="categories">
-        <p style={{ color: "#fff" }}>
-          {filteredOffers.length} / {offersList.length} offres
-        </p>
-        <p>Filtres :</p>
+        <p style={{ color: "#fff" }}>Filtrez par catégorie :</p>
         <Select
           isMulti
           name="categories"
@@ -48,6 +45,9 @@ export const RentOffersCards = ({
           value={selectedCategories}
           onChange={setSelectedCategories}
         />
+        <p style={{ color: "#fff" }}>
+          ( {filteredOffers.length} / {offersList.length} ) offres
+        </p>
       </div>
       <div className="container">
         {filteredOffers.map((offer) => (

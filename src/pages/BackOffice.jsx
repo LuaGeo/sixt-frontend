@@ -15,7 +15,7 @@ export const BackOffice = () => {
 
   const handleSubmitPassword = (event) => {
     event.preventDefault();
-    if (password === "HelloWorld") {
+    if (password === "HelloWorld!") {
       Cookies.set("password", password);
       setIslogged(true);
     } else {

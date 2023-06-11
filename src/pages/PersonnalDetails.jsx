@@ -9,6 +9,8 @@ import axios from "axios";
 import { differenceInDays, parseISO } from "date-fns";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { ModalConfirmation } from "../components/ModalConfirmation";
+
 export const PersonnalDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,9 +25,6 @@ export const PersonnalDetails = () => {
     pickupStation,
     searchTerm,
   } = location.state || {};
-
-  console.log(totalPrice);
-  console.log(typeof totalPrice);
 
   const rentalDurationInDays = differenceInDays(
     new Date(returnDate),
@@ -54,6 +53,10 @@ export const PersonnalDetails = () => {
   const [city, setCity] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [birthdate, setBirthdate] = useState("");
+
+  const [reservationReference, setReservationReference] = useState("");
+  const [visibleModalConfirmation, setVisibleModalConfirmation] =
+    useState(false);
 
   const countriesList = useMemo(() => countryList().getData(), []);
   const countryCodesList = useMemo(() => countryList().getValues(), []);
@@ -88,7 +91,8 @@ export const PersonnalDetails = () => {
         "https://site--sixt-backend--6v4khcscf8qp.code.run/reservations",
         formattedData
       );
-      navigate("/");
+      setReservationReference(response.data.reference);
+      setVisibleModalConfirmation(!visibleModalConfirmation);
     } catch (error) {
       console.log(error);
     }
@@ -300,6 +304,13 @@ export const PersonnalDetails = () => {
           </div>
         </div>
       </form>
+      {visibleModalConfirmation && (
+        <ModalConfirmation
+          setVisibleModalConfirmation={setVisibleModalConfirmation}
+          visibleModalConfirmation={visibleModalConfirmation}
+          reservationReference={reservationReference}
+        />
+      )}
     </>
   );
 };
