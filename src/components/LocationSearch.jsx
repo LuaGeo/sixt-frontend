@@ -5,7 +5,8 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import AsyncSelect from "react-select/async";
 
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DateTimePicker } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import { handleDisableButton } from "../utils/handleDisableButton";
 
@@ -82,7 +83,7 @@ export const LocationSearch = ({ currentPage }) => {
           <label>Date de départ</label>
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
+            <DateTimePicker
               orientation="landscape"
               onChange={(value) => {
                 const dateString = value.$d;
@@ -97,7 +98,13 @@ export const LocationSearch = ({ currentPage }) => {
                 setPickupDate(formattedDate);
               }}
               className="datePicker"
-              format="DD/MM/YYYY"
+              format="DD/MM/YYYY hh:mm"
+              minTime={dayjs().set("hour", 8)}
+              maxTime={dayjs().set("hour", 18)}
+              ampm={false}
+              hoursStep={0.5}
+              minutesStep={30}
+              skipDisabled
             />
           </LocalizationProvider>
         </div>
@@ -105,7 +112,7 @@ export const LocationSearch = ({ currentPage }) => {
           <label>Date de retour</label>
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
+            <DateTimePicker
               onChange={(value) => {
                 const dateString = value.$d;
                 const dateObject = new Date(dateString);
@@ -119,7 +126,12 @@ export const LocationSearch = ({ currentPage }) => {
                 setReturnDate(formattedDate);
               }}
               className="datePicker"
-              format="DD/MM/YYYY"
+              format="DD/MM/YYYY hh:mm"
+              minTime={dayjs().set("hour", 8)}
+              maxTime={dayjs().set("hour", 18)}
+              ampm={false}
+              minutesStep={30}
+              skipDisabled
             />
           </LocalizationProvider>
         </div>
