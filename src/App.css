@@ -834,6 +834,8 @@ thead > tr span:first-child {
   cursor: pointer;
 }
 
+/* Backoffice Modal */
+
 .backofficeoModalContainer {
   position: absolute;
   top: 0;
@@ -862,9 +864,15 @@ thead > tr span:first-child {
   color: #413f3f;
 }
 
+.priceAndClientDetailsContainer {
+  display: flex;
+  width: 100%;
+}
+
 .prixDetails {
   display: flex;
   flex-direction: column;
+  width: 50%;
   gap: 20px;
 }
 
@@ -878,11 +886,11 @@ thead > tr span:first-child {
 .options {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 5px;
 }
 
 .options > div {
-  width: 50%;
   display: flex;
   justify-content: space-between;
   background-color: #dfdddda2;
