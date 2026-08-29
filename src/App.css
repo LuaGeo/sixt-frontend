@@ -1,10 +1,26 @@
 * {
   box-sizing: border-box;
 }
+html,
 body {
-  margin: 0 auto;
-  max-width: 1224px;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
   font-family: "Roboto", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Bande de contenu centrée, réutilisable pour limiter la largeur du texte
+   tout en gardant des fonds pleine largeur. */
+.pageWrap {
+  width: 100%;
+  max-width: 1224px;
+  margin: 0 auto;
 }
 
 header {
@@ -12,10 +28,13 @@ header {
 }
 
 .headerHome {
-  height: 50px;
+  min-height: 50px;
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 8px clamp(16px, 4vw, 40px);
 }
 
 .headerHome li {
@@ -49,17 +68,18 @@ header {
 }
 
 .headerHome > div {
-  height: 100%;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .headerHome button {
-  height: 100%;
   border-style: none;
   background-color: transparent;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .headerHome .loggoutButton {
@@ -69,12 +89,14 @@ header {
 }
 
 .headerHome button > img {
-  height: 100%;
+  height: 34px;
+  width: auto;
 }
 
 .headerHome div > nav > ul {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 8px 20px;
 }
 
 /* HERO */
@@ -83,20 +105,19 @@ header {
   background-color: #191919;
   color: #fff;
   z-index: 1;
-  padding: 10px 35px;
+  padding: 14px clamp(16px, 4vw, 40px) 18px;
   display: flex;
   width: 100%;
-  height: 150px;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .searchEngines {
   width: 100%;
-  height: 80px;
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 14px 20px;
   align-items: flex-end;
 }
 
@@ -105,6 +126,13 @@ header {
   color: #fff;
   border-style: none;
   height: 40px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.searchEngines button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .hero > ul {
@@ -114,7 +142,13 @@ header {
 
 .citiesSearchBar {
   position: relative;
-  width: 40%;
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 460px;
+}
+
+.searchEngines > a {
+  flex: 0 0 auto;
 }
 
 .hero label {
@@ -136,6 +170,13 @@ header {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  flex: 1 1 215px;
+  min-width: 185px;
+}
+
+.dates .MuiFormControl-root,
+.dates .MuiTextField-root {
+  width: 100%;
 }
 
 .dates input {
@@ -158,30 +199,34 @@ header {
 }
 
 .carousel > div > img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
 }
 
 .worldMapBlock {
   width: 100%;
   background-color: #191919;
-  padding: 40px;
+  padding: clamp(24px, 5vw, 40px);
 }
 
 .worldMapBlock > div {
   display: flex;
-  align-items: baseline;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 40px;
   margin-top: 30px;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .worldMapBlock img {
-  width: 70%;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
 }
 
 h1 {
   color: #fff;
-  font-size: 30px;
+  font-size: clamp(20px, 4.5vw, 30px);
 }
 
 .worldMapBlock button {
@@ -194,45 +239,50 @@ h1 {
 
 .downloadsBlock {
   width: 100%;
-  height: 464px;
+  min-height: 340px;
   background-color: #ff5f00;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 24px;
+  padding: 48px 20px;
+  text-align: center;
 }
 
 .downloadsBlock .buttons {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .downloadsBlock .socialMedia {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 footer {
-  height: 50px;
   background-color: #191919;
   color: #fff;
-  padding: 10px 30px;
+  padding: 14px clamp(16px, 4vw, 30px);
 }
 
 footer ul {
-  height: 30px;
   display: flex;
-  align-items: flex-end;
-  font-size: 10px;
-  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 11px;
+  gap: 10px 20px;
 }
 
 /* OFFERLIST PAGE */
 
 .offerListMain {
   background-color: #ff5f00;
-  padding: 26px 20px 64px;
+  padding: 26px clamp(12px, 3vw, 24px) 64px;
 }
 
 /* --- barre de filtre --- */
@@ -437,7 +487,11 @@ footer ul {
 }
 
 .modalInfosContainer {
-  width: 100vw;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  max-height: 92vh;
+  overflow-y: auto;
   background-color: #191919;
   position: relative;
   display: flex;
@@ -556,8 +610,10 @@ footer ul {
 .offerConfigContainer {
   width: 100%;
   background-color: #ff5f00;
-  padding: 20px;
+  padding: clamp(16px, 4vw, 28px);
   display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
 }
 
 .offerConfigContainer h1 {
@@ -573,7 +629,8 @@ footer ul {
 
 .chargeCardContainer {
   width: 350px;
-  height: 200px;
+  max-width: 100%;
+  min-height: 200px;
   background-color: #191919;
   padding: 20px;
   display: flex;
@@ -583,7 +640,8 @@ footer ul {
 
 .selectedChargeCardContainer {
   width: 350px;
-  height: 200px;
+  max-width: 100%;
+  min-height: 200px;
   background-color: #fff;
   padding: 20px;
   display: flex;
@@ -616,28 +674,30 @@ footer ul {
 }
 
 .leftColumn {
-  width: 70%;
+  flex: 1 1 420px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .includedOffersList {
-  width: 87%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 10px 16px;
 }
 
 .includedOffersList > div {
-  width: 48%;
+  flex: 1 1 200px;
 }
 
 .rightColumn {
-  width: 30%;
-  height: 90px;
+  flex: 1 1 240px;
+  min-height: 90px;
   display: flex;
   flex-direction: column;
+  gap: 16px;
   justify-content: space-between;
   color: #fff;
 }
@@ -698,9 +758,12 @@ footer ul {
 
 .priceDetailsModalInfosContainer {
   width: 500px;
+  max-width: calc(100vw - 32px);
   height: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
   background-color: #fff;
-  padding: 20px 40px;
+  padding: 20px clamp(20px, 5vw, 40px);
   display: flex;
   flex-direction: column;
 }
@@ -785,7 +848,8 @@ footer ul {
 }
 
 .personnalDetailsContainer form {
-  width: 50%;
+  width: 100%;
+  max-width: 460px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -890,8 +954,8 @@ footer ul {
 }
 
 .infosConfirmationContainer {
-  width: 30%;
-  height: 30%;
+  width: 340px;
+  max-width: calc(100vw - 32px);
   background-color: #fff;
   padding: 30px;
   display: flex;
@@ -953,7 +1017,8 @@ footer ul {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding: clamp(16px, 4vw, 50px);
+  overflow-x: auto;
 }
 
 thead > tr {
@@ -1027,7 +1092,10 @@ thead > tr span:first-child {
 .backofficeoModalInfosContainer {
   background-color: #fff;
   width: 80%;
-  padding: 50px;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(20px, 5vw, 50px);
 }
 
 .backofficeoModalTitleInfosContainer {
@@ -1225,4 +1293,138 @@ thead > tr span:first-child {
 
 .reviewCard .reviewSubmit:hover {
   background-color: #e65600;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablette et moins */
+@media (max-width: 900px) {
+  /* Modale d'offre : image au-dessus, infos en dessous */
+  .modalInfosContainer {
+    flex-direction: column;
+  }
+  .modalCarouselContainer,
+  .modalInfosSelect {
+    width: 100%;
+  }
+  .modalCarouselContainer {
+    height: 240px;
+  }
+  .modalTitle,
+  .spanContainer {
+    position: static;
+    margin: 0;
+  }
+  .modalTitle {
+    padding: 14px 20px 0;
+  }
+  .spanContainer {
+    flex-wrap: wrap;
+    gap: 12px 22px;
+    padding: 10px 20px 0;
+  }
+  .modalContainer span {
+    font-size: 16px;
+  }
+  .modalInfosSelect {
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  /* OfferConfig : le hero et la barre d'infos s'adaptent */
+  .offerConfigHero {
+    height: 220px;
+  }
+  .offerConfigHero > h1 {
+    position: static;
+    display: inline-block;
+    margin: 12px;
+  }
+  .offerConfigHeroDetails {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 20px;
+  }
+  .offerConfigHeroDetails > div {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .headerHome div > nav > ul {
+    font-size: 13px;
+    gap: 6px 12px;
+  }
+
+  /* Barre de recherche : tout empilé, pleine largeur */
+  .searchEngines {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .citiesSearchBar,
+  .dates {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+  .searchEngines > a,
+  .searchEngines > a button,
+  .searchEngines button {
+    width: 100%;
+  }
+
+  /* « Sixt dans le monde » : carte puis chiffres, centrés */
+  .worldMapBlock > div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* OfferList : filtre empilé */
+  .offerFilterBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  /* en colonne, flex-basis:300px agirait sur la HAUTEUR → on neutralise */
+  .offerFilterBar__select {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .offerFilterBar__count {
+    margin-left: 0;
+    text-align: right;
+  }
+  .offerGrid {
+    gap: 14px;
+  }
+
+  /* Formulaire conducteur : pleine largeur */
+  .personnalDetailsContainer form,
+  .personnalDetailsContainer .reserveVerifyContainer,
+  .buttonSubmitForm,
+  .reservationTotal {
+    width: 100%;
+  }
+  .personnalDetailsContainer button {
+    width: 100%;
+  }
+  .address {
+    flex-wrap: wrap;
+  }
+
+  /* Détail du prix / récap backoffice */
+  .priceAndClientDetailsContainer {
+    flex-wrap: wrap;
+  }
+  .prixDetails,
+  .periode {
+    width: 100%;
+  }
 }
