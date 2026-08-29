@@ -10,6 +10,7 @@ import { differenceInDays, parseISO } from "date-fns";
 import { useLocation } from "react-router-dom";
 
 import { ModalConfirmation } from "../components/ModalConfirmation";
+import { API_URL } from "../config";
 
 export const PersonnalDetails = () => {
   const location = useLocation();
@@ -25,7 +26,7 @@ export const PersonnalDetails = () => {
 
   const rentalDurationInDays = differenceInDays(
     new Date(returnDate),
-    new Date(pickupDate)
+    new Date(pickupDate),
   );
 
   const mappedExtraFees = rentDetails.extraFees.map((extraFee) => ({
@@ -36,7 +37,7 @@ export const PersonnalDetails = () => {
     (additionalCharge) => ({
       optionTitles: additionalCharge.title,
       optionPrices: additionalCharge.dayPrice,
-    })
+    }),
   );
 
   const [salutation, setSalutation] = useState("");
@@ -85,8 +86,8 @@ export const PersonnalDetails = () => {
       };
 
       const response = await axios.post(
-        "https://site--sixt-backend--6v4khcscf8qp.code.run/reservations",
-        formattedData
+        `${API_URL}/reservations`,
+        formattedData,
       );
       setReservationReference(response.data.reference);
       setVisibleModalConfirmation(!visibleModalConfirmation);
@@ -105,7 +106,7 @@ export const PersonnalDetails = () => {
 
   const rentDuration = differenceInDays(
     parseISO(returnDate),
-    parseISO(pickupDate)
+    parseISO(pickupDate),
   );
 
   return (
@@ -235,70 +236,87 @@ export const PersonnalDetails = () => {
               </div>
             </div>
           </div>
-          <h2>VÉRIFIER ET RÉSERVER</h2>
+          <section className="reviewCard">
+            <h2>VÉRIFIER ET RÉSERVER</h2>
 
-          <div className="backofficeoModalTitleInfosContainer">
-            <div>
-              <h3>{offer.headlines.description}</h3>
-              <p>{offer.headlines.longSubline}</p>
+            <div className="reviewVehicle">
+              <img
+                src={offer.images.small}
+                alt={offer.headlines.description}
+              />
+              <div className="reviewVehicleText">
+                <h3>{offer.headlines.description}</h3>
+                <p>{offer.headlines.longSubline}</p>
+              </div>
             </div>
-            <img src={offer.images.small} alt="" />
-          </div>
-          <h3>VOTRE OFFRE INCLUT</h3>
-          {rentDetails.includedCharges.map((charge, index) => (
-            <p key={index} className="ico-bullet-sm">
-              {charge.title}
-            </p>
-          ))}
-          <h3>EXIGENCES POUR LES CONDUCTEURS</h3>
-          <p>
-            ▹ Conducteur agé d'au moins{" "}
-            <span style={{ fontWeight: "bold" }}>
-              {" "}
-              {offer.carGroupInfo.driverMinAge} ans{" "}
-            </span>
-          </p>
-          <div className="prixDetails">
-            <h3>PÉRIODE DE LOCATION</h3>
-            <div className="periode">
-              <p>
-                Duré de location {rentDuration} jours x{" "}
-                {offer.prices.dayPrice.amount}
-              </p>
 
-              <p>
-                € {(rentDuration * offer.prices.dayPrice.amount).toFixed(2)}
+            <div className="reviewBlock">
+              <h4>Votre offre inclut</h4>
+              <ul className="reviewIncludes">
+                {rentDetails.includedCharges.map((charge, index) => (
+                  <li key={index}>{charge.title}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="reviewBlock">
+              <h4>Exigences pour les conducteurs</h4>
+              <p className="reviewRequirement">
+                Conducteur âgé d'au moins{" "}
+                <strong>{offer.carGroupInfo.driverMinAge} ans</strong>
               </p>
             </div>
-            <h3>PROTECTIONS ET OPTIONS</h3>
-            <div className="options">
-              {selectedAdditionalCharges.map((option) => (
-                <div key={option.id}>
-                  <p>
-                    {option.title} ({rentDuration} x {option.dayPrice})
-                  </p>
 
-                  <p>€ {(option.dayPrice * rentDuration).toFixed(2)}</p>
-                </div>
-              ))}
+            <div className="reviewBlock">
+              <h4>Période de location</h4>
+              <div className="reviewLine">
+                <span>
+                  Durée de location ({rentDuration}{" "}
+                  {rentDuration > 1 ? "jours" : "jour"} × €{" "}
+                  {offer.prices.dayPrice.amount})
+                </span>
+                <span>
+                  € {(rentDuration * offer.prices.dayPrice.amount).toFixed(2)}
+                </span>
+              </div>
             </div>
-            <h1 style={{ color: "black" }}>FRAIS</h1>
-            <div className="options">
+
+            {selectedAdditionalCharges.length > 0 && (
+              <div className="reviewBlock">
+                <h4>Protections et options</h4>
+                {selectedAdditionalCharges.map((option) => (
+                  <div className="reviewLine" key={option.id}>
+                    <span>
+                      {option.title} ({rentDuration} × € {option.dayPrice})
+                    </span>
+                    <span>
+                      € {(option.dayPrice * rentDuration).toFixed(2)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="reviewBlock">
+              <h4>Frais</h4>
               {rentDetails.extraFees.map((fee, index) => (
-                <div key={index}>
-                  <p>{fee.title}</p>
-                  <p>€ {fee.price.amount}</p>
+                <div className="reviewLine" key={index}>
+                  <span>{fee.title}</span>
+                  <span>€ {fee.price.amount}</span>
                 </div>
               ))}
             </div>
-            <div className="reservationTotal">
-              <h3>TOTAL</h3>
-              <p>€{totalPrice}</p>
+
+            <div className="reviewTotal">
+              <span>TOTAL</span>
+              <span>€ {totalPrice}</span>
             </div>
-          </div>
-          <div className="buttonSubmitForm">
-            <button>CONFIRMER</button>
-          </div>
+            <p className="reviewTaxes">(Taxes incluses)</p>
+
+            <button type="submit" className="reviewSubmit">
+              CONFIRMER
+            </button>
+          </section>
         </div>
       </form>
       {visibleModalConfirmation && (

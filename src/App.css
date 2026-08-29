@@ -230,36 +230,195 @@ footer ul {
 
 /* OFFERLIST PAGE */
 
-.categories {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.offerListMain {
+  background-color: #ff5f00;
+  padding: 26px 20px 64px;
 }
 
-.container {
-  width: 100%;
-  background-color: #ff5f00;
+/* --- barre de filtre --- */
+.offerFilterBar {
+  max-width: 1180px;
+  margin: 0 auto 26px;
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.container article {
-  width: 100%;
-}
-
-.articleTitle {
+  align-items: center;
+  gap: 12px 18px;
   background-color: #191919;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
 }
 
-.container img {
-  width: 200px;
+.offerFilterBar__label {
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.container h2 {
+.offerFilterBar__select {
+  flex: 1 1 300px;
+  min-width: 220px;
+  color: #191919;
+}
+
+.offerFilterBar__count {
+  margin-left: auto;
+  white-space: nowrap;
+  font-weight: 700;
   color: #ff5f00;
+  font-variant-numeric: tabular-nums;
+}
+
+.offerGrid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+  gap: 22px;
+}
+
+.offerGrid__empty {
+  max-width: 1180px;
+  margin: 48px auto;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* --- carte --- */
+.carCardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.carCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #e6e6e8;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.carCardLink:hover .carCard,
+.carCardLink:focus-visible .carCard {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(25, 25, 25, 0.28);
+  border-color: #191919;
+}
+
+.carCard__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background-color: #f1f1f3;
+}
+
+.carCard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carCard__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background-color: #ff5f00;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.carCard__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 16px 6px;
+}
+
+.carCard__title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #191919;
+}
+
+.carCard__sub {
+  font-size: 12.5px;
+  color: #808080;
+}
+
+.carCard__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #333;
+}
+
+.carCard__specs li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.carCard__specs i {
+  font-size: 15px;
+  color: #ff5f00;
+}
+
+.carCard__mileage {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #2e7d32;
+}
+
+.carCard__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px 15px;
+  border-top: 1px solid #eee;
+}
+
+.carCard__price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.carCard__price strong {
+  font-size: 20px;
+  font-weight: 800;
+  color: #191919;
+}
+
+.carCard__price span {
+  font-size: 12px;
+  color: #808080;
+}
+
+.carCard__total {
+  font-size: 11.5px;
+  color: #9a9a9a;
+  text-align: right;
 }
 
 /* MODAL */
@@ -601,8 +760,12 @@ footer ul {
 
 .personnalDetailsContainer {
   width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 
@@ -646,20 +809,33 @@ footer ul {
 .formContainer {
   width: 100%;
   display: flex;
-  align-items: center;
-  gap: 60px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px 48px;
 }
 
 .leftColumnForm {
+  flex: 1 1 280px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 .rightColumnForm {
+  flex: 1 1 280px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 30px;
   margin-top: 37px;
+}
+
+/* Colonnes empilées sur petits écrans : on annule le décalage de la 2e colonne */
+@media (max-width: 640px) {
+  .rightColumnForm {
+    margin-top: 0;
+  }
 }
 
 .formCompany {
@@ -900,4 +1076,153 @@ thead > tr span:first-child {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+/* ===== VÉRIFIER ET RÉSERVER — carte récapitulative ===== */
+
+.reviewCard {
+  align-self: center;
+  width: 100%;
+  max-width: 460px;
+  margin-top: 40px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.reviewCard h2 {
+  margin: 0;
+  height: auto;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #191919;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.reviewCard h3 {
+  width: auto;
+  height: auto;
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.reviewCard h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  line-height: 1.3;
+}
+
+.reviewCard p {
+  line-height: 1.4;
+}
+
+/* Bandeau véhicule : vignette + libellés sur une ligne chacun */
+.reviewVehicle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reviewVehicle img {
+  width: 132px;
+  height: 84px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.reviewVehicleText p {
+  font-size: 13px;
+  color: #777;
+}
+
+.reviewBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reviewIncludes {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.reviewIncludes li {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.reviewIncludes li::before {
+  content: "✓";
+  flex-shrink: 0;
+  color: #ff5f00;
+  font-weight: 700;
+}
+
+.reviewRequirement {
+  font-size: 13px;
+}
+
+/* Lignes de prix : libellé à gauche, montant à droite */
+.reviewLine {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 7px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.reviewLine span:last-child {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.reviewTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 700;
+}
+
+.reviewTotal span:last-child {
+  font-size: 20px;
+}
+
+.reviewTaxes {
+  margin-top: -16px;
+  font-size: 12px;
+  color: #999;
+}
+
+.reviewCard .reviewSubmit {
+  width: 100%;
+  height: 44px;
+  margin-top: 4px;
+  border: none;
+  background-color: #ff5f00;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.reviewCard .reviewSubmit:hover {
+  background-color: #e65600;
 }

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import { SplashImages } from "./SplashImages";
 import { calculateTotalPrice } from "../utils/calculateTotalPrice";
+import { API_URL } from "../config";
 
 export const Modal = ({
   setVisibleModal,
@@ -37,13 +38,13 @@ export const Modal = ({
       try {
         const payload = { offerId: offer.id };
         const response = await axios.post(
-          "https://site--sixt-backend--6v4khcscf8qp.code.run/rentalconfigurations/create",
-          payload
+          `${API_URL}/rentalconfigurations/create`,
+          payload,
         );
         setRentDetails(response.data);
         setIsLoading(false);
         const extraFees = response.data.extraFees.map(
-          (extraFee) => extraFee.price.amount
+          (extraFee) => extraFee.price.amount,
         );
         setExtraFees(extraFees);
       } catch (error) {

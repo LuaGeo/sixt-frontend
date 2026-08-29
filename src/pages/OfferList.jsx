@@ -5,27 +5,33 @@ import axios from "axios";
 import { RentOffersCards } from "../components/RentOffersCards";
 import { LocationSearch } from "../components/LocationSearch";
 import { Modal } from "../components/Modal";
+import { API_URL } from "../config";
 
 export const OfferList = () => {
   const location = useLocation();
 
+  // Valeurs par défaut si on arrive sur /offerlist sans passer par la recherche
+  // (lien direct, rafraîchissement de la page).
+  const iso = (d) => d.toISOString().split("T")[0];
+  const inDays = (n) => iso(new Date(Date.now() + n * 86400000));
+  const state = location.state || {};
   const {
-    pickupStation,
-    returnStation,
-    pickupDate,
-    returnDate,
-    offer,
+    pickupStation = "",
+    returnStation = "",
+    pickupDate = inDays(0),
+    returnDate = inDays(3),
     searchTerm,
-  } = location.state || {};
+  } = state;
 
   const [offersList, setOffersList] = useState([]);
   const [visibleModal, setVisibleModal] = useState(false);
+  const [selectedOffer, setSelectedOffer] = useState(null);
 
   useEffect(() => {
     const fetchOffers = async () => {
       try {
         const response = await axios.get(
-          `https://site--sixt-backend--6v4khcscf8qp.code.run/rentaloffers?pickupStation=${pickupStation}&returnStation=${returnStation}&pickupDate=${pickupDate}&returnDate=${returnDate}`
+          `${API_URL}/rentaloffers?pickupStation=${pickupStation}&returnStation=${returnStation}&pickupDate=${pickupDate}&returnDate=${returnDate}`,
         );
         setOffersList(response.data);
       } catch (error) {
@@ -44,14 +50,14 @@ export const OfferList = () => {
         offersList={offersList}
         pickupDate={pickupDate}
         returnDate={returnDate}
-        visibleModal={visibleModal}
         setVisibleModal={setVisibleModal}
+        onSelectOffer={setSelectedOffer}
       />
-      {visibleModal && (
+      {visibleModal && selectedOffer && (
         <Modal
           visibleModal={visibleModal}
           setVisibleModal={setVisibleModal}
-          offer={offer}
+          offer={selectedOffer}
           pickupDate={pickupDate}
           returnDate={returnDate}
           pickupStation={pickupStation}

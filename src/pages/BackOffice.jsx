@@ -5,6 +5,7 @@ import axios from "axios";
 import { Header } from "../components/Header";
 import { BackofficeModal } from "../components/BackofficeModal";
 import { BackofficeTable } from "../components/BackofficeTable";
+import { API_URL } from "../config";
 
 export const BackOffice = () => {
   const [password, setPassword] = useState("");
@@ -24,11 +25,9 @@ export const BackOffice = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(
-        `https://site--sixt-backend--6v4khcscf8qp.code.run/reservations/${id}`
-      );
+      await axios.delete(`${API_URL}/reservations/${id}`);
       setReservations(
-        reservations.filter((reservation) => reservation._id !== id)
+        reservations.filter((reservation) => reservation._id !== id),
       );
     } catch (error) {
       console.log(error);
@@ -45,9 +44,7 @@ export const BackOffice = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await axios.get(
-          `https://site--sixt-backend--6v4khcscf8qp.code.run/reservations`
-        );
+        const response = await axios.get(`${API_URL}/reservations`);
         setReservations(response.data);
       } catch (error) {
         console.log(error);

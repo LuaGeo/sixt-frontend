@@ -9,15 +9,16 @@ import { DateTimePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import { handleDisableButton } from "../utils/handleDisableButton";
+import { API_URL } from "../config";
 
 export const LocationSearch = ({ currentPage }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const [pickupDate, setPickupDate] = useState(
-    new Date().toISOString().split("T")[0]
+    new Date().toISOString().split("T")[0],
   );
   const [returnDate, setReturnDate] = useState(
-    new Date().toISOString().split("T")[0]
+    new Date().toISOString().split("T")[0],
   );
   const [pickupStation, setPickupStation] = useState("");
   const [returnStation, setReturnStation] = useState("");
@@ -26,7 +27,7 @@ export const LocationSearch = ({ currentPage }) => {
     if (inputValue.length >= 3) {
       try {
         const response = await fetch(
-          `https://site--sixt-backend--6v4khcscf8qp.code.run/locations?q=${inputValue}`
+          `${API_URL}/locations?q=${inputValue}`,
         );
         const data = await response.json();
         callback(data);
@@ -90,7 +91,7 @@ export const LocationSearch = ({ currentPage }) => {
                 const day = String(dateObject.getDate()).padStart(2, "0");
                 const month = String(dateObject.getMonth() + 1).padStart(
                   2,
-                  "0"
+                  "0",
                 );
                 const year = dateObject.getFullYear();
                 const formattedDate = `${year}-${month}-${day}`;
@@ -118,7 +119,7 @@ export const LocationSearch = ({ currentPage }) => {
                 const day = String(dateObject.getDate()).padStart(2, "0");
                 const month = String(dateObject.getMonth() + 1).padStart(
                   2,
-                  "0"
+                  "0",
                 );
                 const year = dateObject.getFullYear();
                 const formattedDate = `${year}-${month}-${day}`;
@@ -150,7 +151,7 @@ export const LocationSearch = ({ currentPage }) => {
                 pickupStation,
                 returnStation,
                 pickupDate,
-                returnDate
+                returnDate,
               )}
             >
               VOIR LES OFFRES
